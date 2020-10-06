@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One View</title>
+</head>
+<body>
+    <h1>Dr. APJ Abdul Kalam Technical University, Uttar Pradesh, Lucknow</h1>
+    <h2>AKTU One View</h2>
+
+    <h2>Student Result</h2>
+
+    <table border="1">
+        <tr><th>Institute Code & Name</th><td>340, Vivekananda College of Technology and Management</td></tr>
+        <tr><th>Course Name</th><td>{{std.coursename}}</td><th>Branch Name</th><td>{{std.branchname}}</td></tr>      
+        <tr><th>Roll No</th><td>{{std.studroll}}</td><th>Enrollment No</th><td>12345</td></tr>  
+        <tr><th>Name</th><td>{{std.studname}}</td><th>Mother Name</th><td>{{std.mother}}</td></tr>  
+        <tr><th>Father Name</th><td>{{std.father}}</td><th>Gender</th><td>{{std.gen}}</td></tr>    
+    </table>
+
+    <h2>One View Result</h2>
+
+    <!-- Table for 1st Semester -->
+    {% with isBreak1=0 %}
+    {% endwith %}
+    {  {% for form in form|slice:":1" %} 
+        {% if form.get_sem == 1 %}   
+            {% with isBreak1=1 %}  
+            {% endwith %}    
+        {% endif %}
+        {% endfor %}
+        {% if isBreak1 == 1 %}
+        <h3><b>Semester:</b> 1st</h3> 
+        
+    <h3><b>Total Subjects</b> <b id="sub"></b></h3>
+    <h3><b>Total Marks:</b> <b id="total"></b></h3>
+    <h3><b>Marks Obtained:</b> <b id="marks"></b></h3>
+    <table id="table" border="1">
+        <tr><th>Code</th><th>Name</th><th>Max Marks</th><th>Marks Obtain</th><th>View Copy</th></tr>
+        {% endif %}
+        {% for form in form %}
+        {% if form.get_sem == 1 %}     
+        <tr>           
+            <td>{{form.subcode}}</td><td>{{form.get_subname}}</td><td>{{form.get_max_marks}}</td><td>{{form.marks}}</td><td><a href="{{form.sheet.url}}">View Copy</a></td>             
+        </tr>       
+        {% endif %} 
+        {% endfor %}  
+    </table>
+
+    <!-- Table for 2nd Semester -->
+    {% with isBreak2=0 %}
+    {% endwith %}
+    {% for form in form|slice:":1" %}   
+        {% if form.get_sem == 1 %}   
+            {% with isBreak2=1 %}  
+            {% endwith %}    
+        {% endif %}
+        {% endfor %}
+        {% if isBreak2 == 1 %}
+        <h3><b>Semester:</b> 2nd</h3> 
+            
+    <h3><b>Total Subjects</b> <b id="sub2"></b></h3>
+    <h3><b>Total Marks:</b> <b id="total2"></b></h3>
+    <h3><b>Marks Obtained:</b> <b id="marks2"></b></h3>
+    <table id="table2" border="1">
+        <tr><th>Code</th><th>Name</th><th>Max Marks</th><th>Marks Obtain</th><th>View Copy</th></tr>
+        {% endif %} 
+        {% for form in form %}
+        {% if form.get_sem == 2 %}     
+        <tr>           
+            <td>{{form.subcode}}</td><td>{{form.get_subname}}</td><td>{{form.get_max_marks}}</td><td>{{form.marks}}</td><td><a href="{{form.sheet.url}}">View Copy</a></td>             
+        </tr>       
+        {% endif %} 
+        {% endfor %}  
+    </table>
+
+    <!-- Table for 3rd Semester -->
+    {% with isBreak3=0 %}
+    {% endwith %}
+    {% for form in form|slice:":1" %}    
+        {% if form.get_sem == 1 %}   
+            {% with isBreak3=1 %}  
+            {% endwith %}    
+        {% endif %}
+        {% endfor %}
+        {% if isBreak3 == 1 %}
+        <h3><b>Semester:</b> 3rd</h3> 
+             
+    <h3><b>Total Subjects</b> <b id="sub3"></b></h3>
+    <h3><b>Total Marks:</b> <b id="total3"></b></h3>
+    <h3><b>Marks Obtained:</b> <b id="marks3"></b></h3>
+    <table id="table3" border="1">
+        <tr><th>Code</th><th>Name</th><th>Max Marks</th><th>Marks Obtain</th><th>View Copy</th></tr>
+        {% endif %}
+        {% for form in form %}
+        {% if form.get_sem == 3 %}     
+        <tr>           
+            <td>{{form.subcode}}</td><td>{{form.get_subname}}</td><td>{{form.get_max_marks}}</td><td>{{form.marks}}</td><td><a href="{{form.sheet.url}}">View Copy</a></td>             
+        </tr>       
+        {% endif %} 
+        {% endfor %}  
+    </table>
+
+    <!-- Table for 4th Semester -->
+    {% with isBreak4=0 %}
+    {% endwith %}
+      {% for form in form|slice:":1" %}   
+        {% if form.get_sem == 1 %}   
+            {% with isBreak4=1 %}  
+            {% endwith %}    
+        {% endif %}
+        {% endfor %}
+        {% if isBreak4 == 1 %}
+        <h3><b>Semester:</b> 4th</h3> 
+             
+    <h3><b>Total Subjects</b> <b id="sub4"></b></h3>
+    <h3><b>Total Marks:</b> <b id="total4"></b></h3>
+    <h3><b>Marks Obtained:</b> <b id="marks4"></b></h3>
+    <table id="table4" border="1">
+        <tr><th>Code</th><th>Name</th><th>Max Marks</th><th>Marks Obtain</th><th>View Copy</th></tr>
+        {% endif %}
+        {% for form in form %}
+        {% if form.get_sem == 4 %}     
+        <tr>           
+            <td>{{form.subcode}}</td><td>{{form.get_subname}}</td><td>{{form.get_max_marks}}</td><td>{{form.marks}}</td><td><a href="{{form.sheet.url}}">View Copy</a></td>             
+        </tr>       
+        {% endif %} 
+        {% endfor %}  
+    </table>
+
+    <!-- Table for 5th Semester -->
+    {% with isBreak=0 %}
+    {% endwith %}
+      {% for form in form|slice:":1" %}   
+        {% if form.get_sem == 1 %}   
+            {% with isBreak=1 %}  
+            {% endwith %}    
+        {% endif %}
+        {% endfor %}
+        {% if isBreak == 1 %}
+        <h3><b>Semester:</b> 5th</h3> 
+    
+    <h3><b>Total Subjects</b> <b id="sub5"></b></h3>
+    <h3><b>Total Marks:</b> <b id="total5"></b></h3>
+    <h3><b>Marks Obtained:</b> <b id="marks5"></b></h3>
+    <table id="table5" border="1">
+        <tr><th>Code</th><th>Name</th><th>Max Marks</th><th>Marks Obtain</th><th>View Copy</th></tr>
+        {% endif %}      
+        {% for form in form %}
+        {% if form.get_sem == 5 %}     
+        <tr>           
+            <td>{{form.subcode}}</td><td>{{form.get_subname}}</td><td>{{form.get_max_marks}}</td><td>{{form.marks}}</td><td><a href="{{form.sheet.url}}">View Copy</a></td>             
+        </tr>       
+        {% endif %} 
+        {% endfor %}  
+    </table>
+
+    <!-- Table for 6th Semester -->
+    {% with isBreak=false %}
+    {% endwith %}
+    {% for form in form|slice:":1" %}   
+        {% if form.get_sem == 1 %}   
+            {% with isBreak=true %}  
+            {% endwith %}    
+        {% endif %}
+        {% endfor %}
+        {% if isBreak == true %}
+        <h3><b>Semester:</b> 6th</h3> 
+    {% endif %}         
+    <h3><b>Total Subjects</b> <b id="sub6"></b></h3>
+    <h3><b>Total Marks:</b> <b id="total6"></b></h3>
+    <h3><b>Marks Obtained:</b> <b id="marks6"></b></h3>
+    <table id="table6" border="1">
+        <tr><th>Code</th><th>Name</th><th>Max Marks</th><th>Marks Obtain</th><th>View Copy</th></tr>
+        {% for form in form %}
+        {% if form.get_sem == 6 %}     
+        <tr>           
+            <td>{{form.subcode}}</td><td>{{form.get_subname}}</td><td>{{form.get_max_marks}}</td><td>{{form.marks}}</td><td><a href="{{form.sheet.url}}">View Copy</a></td>             
+        </tr>       
+        {% endif %} 
+        {% endfor %}  
+    </table>
+
+    <!-- Table for 7th Semester -->
+    {% with isBreak=0 %}
+    {% endwith %}
+    {% for form in form|slice:":1" %}     
+        {% if form.get_sem == 1 %}   
+            {% with isBreak=1 %}  
+            {% endwith %}    
+        {% endif %}
+        {% endfor %}
+        {% if isBreak == 1 %}
+        <h3><b>Semester:</b> 7th</h3> 
+           
+    <h3><b>Total Subjects</b> <b id="sub7"></b></h3>
+    <h3><b>Total Marks:</b> <b id="total7"></b></h3>
+    <h3><b>Marks Obtained:</b> <b id="marks7"></b></h3>
+    <table id="table7" border="1">
+        <tr><th>Code</th><th>Name</th><th>Max Marks</th><th>Marks Obtain</th><th>View Copy</th></tr>
+        {% endif %}
+        {% for form in form %}
+        {% if form.get_sem == 7 %}     
+        <tr>           
+            <td>{{form.subcode}}</td><td>{{form.get_subname}}</td><td>{{form.get_max_marks}}</td><td>{{form.marks}}</td><td><a href="{{form.sheet.url}}">View Copy</a></td>             
+        </tr>       
+        {% endif %} 
+        {% endfor %}  
+    </table>
+
+    <!-- Table for 8th Semester -->
+    {% with isBreak=9 %}
+    {% endwith %}
+    {% for form in form|slice:":1" %}    
+        {% if form.get_sem == 1 %}   
+            {% with isBreak=1 %}  
+            {% endwith %}    
+        {% endif %}
+        {% endfor %}
+        {% if isBreak == 1 %}
+        <h3><b>Semester:</b> 8th</h3> 
+    
+    <h3><b>Total Subjects</b> <b id="sub8"></b></h3>
+    <h3><b>Total Marks:</b> <b id="total8"></b></h3>
+    <h3><b>Marks Obtained:</b> <b id="marks8"></b></h3>
+    <table id="table8" border="1">
+        <tr><th>Code</th><th>Name</th><th>Max Marks</th><th>Marks Obtain</th><th>View Copy</th></tr>
+        {% endif %}      
+        {% for form in form %}
+        {% if form.get_sem == 8 %}     
+        <tr>           
+            <td>{{form.subcode}}</td><td>{{form.get_subname}}</td><td>{{form.get_max_marks}}</td><td>{{form.marks}}</td><td><a href="{{form.sheet.url}}">View Copy</a></td>             
+        </tr>       
+        {% endif %} 
+        {% endfor %}  
+    </table>
+</body>
+</html>
+<script>
+
+    // 1st semester
+    let table = document.getElementById('table');
+    let marksObtained = 0;
+    let totalMarks = 0;
+    for(let i = 1; i < table.rows.length; i++){
+        marksObtained += parseInt(table.rows[i].cells[3].innerHTML);
+        totalMarks += parseInt(table.rows[i].cells[2].innerHTML);
+    }
+    document.getElementById('marks').innerHTML = marksObtained;
+    document.getElementById('total').innerHTML = totalMarks;
+    document.getElementById('sub').innerHTML = table.rows.length - 1;
+
+    // 2nd semester
+    let table2 = document.getElementById('table2');
+    let marksObtained2 = 0;
+    let totalMarks2 = 0;
+    for(let i = 1; i < table2.rows.length; i++){
+        marksObtained2 += parseInt(table2.rows[i].cells[3].innerHTML);
+        totalMarks2 += parseInt(table2.rows[i].cells[2].innerHTML);
+    }
+    document.getElementById('marks2').innerHTML = marksObtained2;
+    document.getElementById('total2').innerHTML = totalMarks2;
+    document.getElementById('sub2').innerHTML = table2.rows.length - 1;
+
+    // 3rd semester
+    let table3 = document.getElementById('table3');
+    let marksObtained3 = 0;
+    let totalMarks3 = 0;
+    for(let i = 1; i < table3.rows.length; i++){
+        marksObtained3 += parseInt(table3.rows[i].cells[3].innerHTML);
+        totalMarks3 += parseInt(table3.rows[i].cells[2].innerHTML);
+    }
+    document.getElementById('marks3').innerHTML = marksObtained3;
+    document.getElementById('total3').innerHTML = totalMarks3;
+    document.getElementById('sub3').innerHTML = table3.rows.length - 1;
+
+    // 4th semester
+    let table4 = document.getElementById('table4');
+    let marksObtained4 = 0;
+    let totalMarks4 = 0;
+    for(let i = 1; i < table4.rows.length; i++){
+        marksObtained4 += parseInt(table4.rows[i].cells[3].innerHTML);
+        totalMarks4 += parseInt(table4.rows[i].cells[2].innerHTML);
+    }
+    document.getElementById('marks4').innerHTML = marksObtained4;
+    document.getElementById('total4').innerHTML = totalMarks4;
+    document.getElementById('sub4').innerHTML = table4.rows.length - 1;
+
+    // 5th semester
+    let table5 = document.getElementById('table5');
+    let marksObtained5 = 0;
+    let totalMarks5 = 0;
+    for(let i = 1; i < table5.rows.length; i++){
+        marksObtained5 += parseInt(table5.rows[i].cells[3].innerHTML);
+        totalMarks5 += parseInt(table5.rows[i].cells[2].innerHTML);
+    }
+    document.getElementById('marks5').innerHTML = marksObtained5;
+    document.getElementById('total5').innerHTML = totalMarks5;
+    document.getElementById('sub5').innerHTML = table5.rows.length - 1;
+
+    // 6th semester
+    let table6 = document.getElementById('table6');
+    let marksObtained6 = 0;
+    let totalMarks6 = 0;
+    for(let i = 1; i < table6.rows.length; i++){
+        marksObtained6 += parseInt(table6.rows[i].cells[3].innerHTML);
+        totalMarks6 += parseInt(table6.rows[i].cells[2].innerHTML);
+    }
+    document.getElementById('marks6').innerHTML = marksObtained6;
+    document.getElementById('total6').innerHTML = totalMarks6;
+    document.getElementById('sub6').innerHTML = table6.rows.length - 1;
+
+    // 7th semester
+    let table7 = document.getElementById('table7');
+    let marksObtained7 = 0;
+    let totalMarks7 = 0;
+    for(let i = 1; i < table7.rows.length; i++){
+        marksObtained7 += parseInt(table7.rows[i].cells[3].innerHTML);
+        totalMarks7 += parseInt(table7.rows[i].cells[2].innerHTML);
+    }
+    document.getElementById('marks7').innerHTML = marksObtained7;
+    document.getElementById('total7').innerHTML = totalMarks7;
+    document.getElementById('sub7').innerHTML = table7.rows.length - 1;
+
+    // 8th semester
+    let table8 = document.getElementById('table8');
+    let marksObtained8 = 0;
+    let totalMarks8 = 0;
+    for(let i = 1; i < table8.rows.length; i++){
+        marksObtained8 += parseInt(table8.rows[i].cells[3].innerHTML);
+        totalMarks8 += parseInt(table8.rows[i].cells[2].innerHTML);
+    }
+    document.getElementById('marks8').innerHTML = marksObtained8;
+    document.getElementById('total8').innerHTML = totalMarks8;
+    document.getElementById('sub8').innerHTML = table8.rows.length - 1;
+</script>

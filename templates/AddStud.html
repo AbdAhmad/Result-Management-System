@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Student Details</title>
+    <!-- <link rel="stylesheet" href="{% static 'AddSubject.css' %}">
+    <style>
+        body{
+            background-image: url({% static 'AddSubject.jpg' %});
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style> -->
+</head>
+<body>
+    <ul>    
+        <li><a style="color: white; text-decoration:none;" href="#">Dashboard</a></li> 
+        <li><a style="color: white; text-decoration:none;" href="/search">Add Marks</a></li>
+        <li><a style="color: white; text-decoration:none;" href="/sub">Add Subject</a></li>
+        <li><a style="color: white; text-decoration:none;" href="#">Logout</a></li>
+    </ul>
+    <form action="stud" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <!-- <div>
+        <h1>Add Student Record</h1>
+        <label>Student Name</label>
+        <input type="text" name="studname"> 
+        <label>Roll Number</label>
+        <input type="text" name="studroll">  
+        <label for="">Mobile</label>                        
+        <input name="mobile" type="number">
+        <label for="">adhar</label>
+        <input name="adhar" type="text">
+        <label for="">gender</label>
+        <input name="gen" type="text">
+        <label for="">address</label>
+        <input name="add" type="text">
+        <label for="">city</label>
+        <input name="city" type="text">
+        <label  for="">state</label>
+        <input name="state" type="text">
+        <label for="">country</label>
+        <input name="country" type="text">
+        <label for="">dob</label>
+        <input name="dob" type="text">
+        <label for="">father</label>
+        <input name="father" type="text">
+        <label for="">mother</label>
+        <input name="mother" type="text">
+        <label for="">pincode</label>
+        <input name="pin" type="text">
+        <label for="">religion</label>
+        <input name="religion" type="text">
+        <label for="">category</label>
+        <input name="category" type="text">
+        <label for="">registration no</label>
+        <input name="reg" type="text">
+        <label for="">year</label>
+        <input name="year" type="text">
+        <label for="">session</label>
+        <input name="session" type="text">
+        <label>Course Name</label>
+        <input name="coursename" type="text">
+         <label>Branch</label>
+         <input name="branchname" type="text">
+        <label>Semester</label>
+        <input name = "sem" type="text">
+        
+        </div>    -->
+        <button type="submit">Save</button>
+    </form>  
+</body>
+</html>

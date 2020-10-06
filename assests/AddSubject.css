@@ -1,0 +1,52 @@
+
+#div1{
+    border-radius: 2.5%;
+    margin-bottom: -50px;
+    position: relative;
+    top: 75px;
+    text-align: center;
+    padding:50px;
+    width:50%;
+    margin:auto;
+    background:white;
+}
+ul{
+    margin:0px;
+    padding: 0px;  
+}
+ul li{
+    float: left;
+    width: 300px;
+    height: 40px;
+    background-color: rgb(201, 5, 5);
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    margin-right: -70px;
+    border-radius: 10px;
+    margin-left: 75px;    
+}
+
+button{
+    color : white;
+    width: 250px; 
+    height: 30px; 
+    border-radius:20px; 
+    background-color :rgb(201, 5, 5);
+}
+#input1{
+    height:25px; 
+    width: 620px; 
+    padding-left: 2%;
+}
+.inputs{
+    height:25px;
+    width: 250px;
+    padding-left: 2%;
+}
+#input2{
+    height:25px;
+    width: 250px; 
+    margin-left:-15px;
+    padding-left: 2%;
+}

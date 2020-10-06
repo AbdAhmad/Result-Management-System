@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Marks</title>
+    <link rel="stylesheet" href="{% static 'AddMark.css' %}">
+    <style>
+        body {
+            background-image: url({% static 'AddSubject.jpg' %});
+            width: 100%;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            height: 100%;
+            z-index: 1;
+          }
+    </style>
+</head>
+<body>
+  <ul>
+    <li><a style="color: white; text-decoration:none;" href="#">Dashboard</a></li> 
+    <li><a style="color: white; text-decoration:none;" href="/search">Add Marks</a></li>
+    <li><a style="color: white; text-decoration:none;" href="/sub">Add Subject</a></li>
+    <li><a style="color: white; text-decoration:none;" href="#">Logout</a></li>
+  </ul>        
+        <div class="container">
+          <form method="POST" action="marks" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div style="margin-right: 280px;position: relative; text-align: center"><h1>{{std.studname}}</h1></div>
+            
+            <div class="left">
+              <h4>Roll no: {{std.studroll}}</h4>
+              <br>
+              <h4>Class Name: {{std.coursename}}</h4>   
+              <br>
+              <h3>Semester: {{std.sem}}</h3>           
+              <br>
+              <h4>Upload</h4>
+              {{form.sheet}}
+        </div>
+        <div class="right">          
+              <h3>Branch: {{std.branchname}}</h3>
+              <br>          
+              <h3>Enter Roll Number to confirm</h3>
+                {{form.roll}}        
+              <!-- <input type="hidden" name="roll" value="{{roll}}"> -->
+              <h4>Marks Obtain</h4>  
+                {{form.marks}}
+                <h4>Select Subject Code</h4>
+                <label style="margin-bottom: 150px;position:relative" for="">{{form.subcode}}</label>          
+        </div>
+            <input
+              class="btn"
+              type="submit"
+              value="Save"
+           />
+          </form>
+        </div>
+</body>
+</html>

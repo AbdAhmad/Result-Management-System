@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Subject</title>
+    <link rel="stylesheet" href="{% static 'AddSubject.css' %}">
+    <style>
+        body{
+            background-image: url({% static 'AddSubject.jpg' %});
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a style="color: white; text-decoration:none;" href="#">Dashboard</a></li> 
+        <li><a style="color: white; text-decoration:none;" href="/search">Add Marks</a></li>
+        <li><a style="color: white; text-decoration:none;" href="/sub">Add Subject</a></li>
+        <li><a style="color: white; text-decoration:none;" href="#">Logout</a></li>
+    </ul>
+    <form action="/sub" method="post">
+        {% csrf_token %}
+        <div id="div1">
+        <h1>Add Subject</h1>
+        <!-- {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %} -->
+        <h2><div class="msg" style="color: rgba(177, 24, 4, 0.918);"></div></h2>
+        <h3 style="margin-left: -490px;">Subject Name</h3>
+        <input id="input1" type="text" name="subname" placeholder="Enter Subject name">
+        <h3 style="margin-left: -150px;">Subject Code<span style="padding-left: 250px;">Max Marks</h3>
+        <input class="inputs" id="input20" name = "subcode" type="text" placeholder="Enter Subject Code"><span style="padding-left: 100px;"></span>
+        <input class="inputs" id="input3" name = "maxmarks" type="text" placeholder="Enter Maximum Marks">                           
+        <h3 style="margin-left: -175px;">Course Name<span style="padding-left: 270px;"></span>Branch</h3>
+        <input name = "course" id="input4" class="inputs" type="text" placeholder="Enter Class name"><span style="padding-left: 100px;"></span>
+        <input name = "branch" id="input5" class="inputs" type="text" placeholder="Enter Branch">
+        <h3 style="margin-left: -530px;">Semester</h3>
+        <input name = "sem" id="input2" type="text" placeholder="Enter Semester"><span style="padding-left: 100px;"></span>
+        <button type="submit">Save</button>
+        </div>   
+    </form>  
+    <!-- <script>
+        const myform = document.querySelector('#abc');
+        const input1 = document.querySelector('#input1');
+        const input20 = document.querySelector('#input20');
+        const input3 = document.querySelector('#input3');
+        const input4 = document.querySelector('#input4');
+        const input5 = document.querySelector('#input5');
+        const input2 = document.querySelector('#input2');
+        const msg = document.querySelector('.msg');
+        myform.addEventListener('submit',onsubmit);
+        function onsubmit(e){
+            if(input1.value===''||input20.value===''||input3.value===''||input4.value===''||input5.value===''||input2.value===''){
+                e.preventDefault();
+               alert("Please Enter all fields")
+            }else{
+                console.log('success');
+            }
+        }
+    </script>  -->
+</body>
+</html>

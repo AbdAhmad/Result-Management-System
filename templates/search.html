@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Search Student</title>
+    <link rel="stylesheet" href="{% static 'AddSubject.css' %}">
+    <style>
+        body{
+            background-image: url({% static 'AddSubject.jpg' %});
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a style="color: white; text-decoration:none;" href="#">Dashboard</a></li>
+        <li><a style="color: white; text-decoration:none;" href="/stud">Add Student</a></li>
+        <li><a style="color: white; text-decoration:none;" href="/sub">Add Subject</a></li>
+        <li><a style="color: white; text-decoration:none;" href="#">Logout</a></li>
+    </ul>
+    <form action="search" method="post">
+        {% csrf_token %}
+        <div id="div1">
+        <div>
+        <h5>Add Student Record</h5>
+        <div>
+            <h5 class="card-title">Select Student</h5>
+            <p class="card-text">Enter roll number :</p>
+            <input class="form-control ml-2" id="input1" type="text" name="studroll" placeholder="Enter roll no">
+            <br>
+            <br>                        
+            <button type="submit">Search</button>
+        </div>
+        </div>
+        
+        </div>   
+    </form>  
+    <script>
+        
+    </script> 
+</body>
+</html>

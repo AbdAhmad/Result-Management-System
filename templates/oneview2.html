@@ -1,0 +1,162 @@
+{% load custom_template_tag %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One View</title>
+</head>
+<body>
+    <h1>Dr. APJ Abdul Kalam Technical University, Uttar Pradesh, Lucknow</h1>
+    <h2>AKTU One View</h2>
+    <h2>One View Result</h2>
+   
+    <table border="1">
+        <tr><th>Institute Code & Name</th><td>340, Vivekananda College of Technology and Management</td></tr>
+        <tr><th>Course Name</th><td>{{std.coursename}}</td><th>Branch Name</th><td>{{std.branchname}}</td></tr>      
+        <tr><th>Roll No</th><td>{{std.studroll}}</td><th>Enrollment No</th><td>12345</td></tr>  
+        <tr><th>Name</th><td>{{std.studname}}</td><th>Mother Name</th><td>{{std.mother}}</td></tr>  
+        <tr><th>Father Name</th><td>{{std.father}}</td><th>Gender</th><td>{{std.gen}}</td></tr>    
+    </table>
+
+    <h2>Student Result</h2>
+    <!-- {% for form in form %}
+    {% if form.get_sem == 1 %}
+
+    {% endif %}
+    {% endfor %} -->
+    <!-- {% if lower %} -->
+        <h3>Semester: 1st</h3>    
+        <h3><b>Total Subjects: </b> <b id="sub"></b></h3>
+        <h3><b>Total Marks:</b> <b id="total"></b> </h3>
+        <h3><b>Marks Obtained:</b> <b id="marks"></b> </h3>   
+        <table id="table" border="1">
+        <tr><th>Code</th><th>Name</th><th>Max Marks</th><th>Marks Obtain</th><th>View Copy</th></tr>    
+    <!-- {% endif %} -->
+        {% for form in form %}    
+            {% if form.get_sem == 1 %}     
+                <tr>           
+                    <td>{{form.subcode}}</td><td>{{form.get_subname}}</td><td>{{form.get_max_marks}}</td><td>{{form.marks}}</td><td><a href="{{form.sheet.url}}">View Copy</a></td>             
+                </tr>       
+            {% endif %} 
+        {% endfor %}  
+    </table> 
+
+    <!-- {% for form in form %}
+    {% if form.get_sem == 2 %}
+    {{ value:"True" }}
+    {% endif %}
+    {% endfor %}
+    {% if value %} -->
+    <h3>Semester: 2nd</h3>      
+    <h3><b>Total Subjects: </b> <b id="sub2"></b></h3>
+    <h3><b>Total Marks:</b> <b id="total2"></b> </h3>
+    <h3><b>Marks Obtained:</b> <b id="marks2"></b> </h3>    
+     <table id="table2" border="1">
+    <tr><th>Code</th><th>Name</th><th>Max Marks</th><th>Marks Obtain</th><th>View Copy</th></tr>    
+    <!-- {% endif %} -->
+        <tr>           
+            {% for form in form %}    
+            {% if form.get_sem == 2 %}  
+            <td>{{form.subcode}}</td><td>{{form.get_subname}}</td><td>{{form.get_max_marks}}</td><td>{{form.marks}}</td><td><a href="{{form.sheet.url}}">View Copy</a></td>             
+        </tr>       
+        {% endif %} 
+        {% endfor %}  
+    </table> 
+
+
+        <h3>Semester: 3rd</h3> 
+        <h3><b>Total Subjects: </b> <b id="sub3"></b></h3>
+        <h3><b>Total Marks:</b> <b id="total3"></b> </h3>
+        <h3><b>Marks Obtained:</b> <b id="marks3"></b> </h3>   
+        <table id="table3" border="1">
+        <tr><th>Code</th><th>Name</th><th>Max Marks</th><th>Marks Obtain</th><th>View Copy</th></tr> 
+
+    {% for form in form %}    
+        {% if form.get_sem == 3 %}     
+            <tr>           
+                <td>{{form.subcode}}</td><td>{{form.get_subname}}</td><td>{{form.get_max_marks}}</td><td>{{form.marks}}</td><td><a href="{{form.sheet.url}}">View Copy</a></td>             
+            </tr>       
+        {% endif %} 
+    {% endfor %}  
+    </table>
+
+        <h3>Semester: 4th</h3> 
+        <h3><b>Total Subjects: </b> <b id="sub4"></b></h3>
+        <h3><b>Total Marks:</b> <b id="total4"></b> </h3>
+        <h3><b>Marks Obtained:</b> <b id="marks4"></b> </h3>   
+        <table id="table4" border="1">
+        <tr><th>Code</th><th>Name</th><th>Max Marks</th><th>Marks Obtain</th><th>View Copy</th></tr> 
+  
+    {% for form in form %}    
+        {% if form.get_sem == 4 %}     
+            <tr>           
+                <td>{{form.subcode}}</td><td>{{form.get_subname}}</td><td>{{form.get_max_marks}}</td><td>{{form.marks}}</td><td><a href="{{form.sheet.url}}">View Copy</a></td>             
+            </tr>       
+        {% endif %} 
+    {% endfor %}  
+    </table> 
+</body>
+
+<script>
+    let table = document.getElementById('table');
+    if(table){  
+    console.log(table.rows)
+    let marksObtained = 0;
+    let totalMarks = 0;
+    
+        for(let i = 1; i < table.rows.length; i++){
+            marksObtained += parseInt(table.rows[i].cells[3].innerHTML);
+            totalMarks += parseInt(table.rows[i].cells[2].innerHTML);
+        }
+        document.getElementById('marks').innerHTML = marksObtained;
+        document.getElementById('total').innerHTML = totalMarks;
+        document.getElementById('sub').innerHTML = table.rows.length - 1;
+    }
+ 
+    let table2 = document.getElementById('table2');
+    if(table2){    
+    let marksObtained2 = 0;
+    let totalMarks2 = 0;
+    console.log(table2.rows)
+   
+        for(let i = 1; i < table2.rows.length; i++){
+        marksObtained2 += parseInt(table2.rows[i].cells[3].innerHTML);
+        totalMarks2 += parseInt(table2.rows[i].cells[2].innerHTML);
+        }
+        document.getElementById('marks2').innerHTML = marksObtained2;
+        document.getElementById('total2').innerHTML = totalMarks2;
+        document.getElementById('sub2').innerHTML = table2.rows.length - 1;
+    }
+
+    let table3 = document.getElementById('table3');
+    if(table3){
+    let marksObtained3 = 0;
+    let totalMarks3 = 0;
+    console.log(table3.rows)
+ 
+        for(let i = 1; i < table3.rows.length; i++){
+            marksObtained3 += parseInt(table3.rows[i].cells[3].innerHTML);
+            totalMarks3 += parseInt(table3.rows[i].cells[2].innerHTML);
+        }
+        document.getElementById('marks3').innerHTML = marksObtained3;
+        document.getElementById('total3').innerHTML = totalMarks3;
+        document.getElementById('sub3').innerHTML = table3.rows.length - 1;
+    }
+
+    let table4 = document.getElementById('table4');
+    if(table3){
+    let marksObtained4 = 0;
+    let totalMarks4 = 0;
+    console.log(table4.rows)
+    
+        for(let i = 1; i < table4.rows.length; i++){
+            marksObtained4 += parseInt(table4.rows[i].cells[3].innerHTML);
+            totalMarks4 += parseInt(table4.rows[i].cells[2].innerHTML);
+        }
+        document.getElementById('marks4').innerHTML = marksObtained4;
+        document.getElementById('total4').innerHTML = totalMarks4;
+        document.getElementById('sub4').innerHTML = table4.rows.length - 1;
+    }
+</script>
+</html>

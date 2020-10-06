@@ -1,0 +1,131 @@
+/* #div1{
+    border-radius: 2.5%;
+    margin-bottom: -50px;
+    position: relative;
+    top: 75px;
+    text-align: center;
+    padding:50px;
+    width:50%;
+    margin:auto;
+    background:white;
+} */
+ul{
+    margin:0px;
+    padding: 0px;    
+}
+ul li{
+    float: left;
+    width: 300px;
+    height: 40px;
+    background-color: rgb(201, 5, 5);
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    margin-right: -70px;
+    border-radius: 10px;
+    margin-left: 75px;
+}
+/* button{
+    color : white;
+    width: 250px; 
+    height: 30px; 
+    border-radius:20px; 
+    background-color :rgb(201, 5, 5);
+} */
+/* #input1{
+    height:25px; 
+    width: 620px; 
+    padding-left: 2%;
+}
+.inputs{
+    height:25px;
+    width: 250px;
+    padding-left: 2%;
+}
+#input2{
+    height:25px;
+    width: 250px; 
+    margin-left:-15px;
+    padding-left: 2%;
+} */
+
+.container{
+    background: white;
+    width: 900px;
+    height: 550px;
+    position: absolute;
+    top:54%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 12px;
+}
+
+/* .container h1{
+  margin-left: 250px;
+} */
+.left{
+    margin-top: 20px;
+    display: inline-block;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    margin-left: 40px;
+}
+.right{
+    margin-top: 20px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    width: 50%;
+    margin-left: 40px;
+}
+.container p{
+    margin-top: 70px;
+}
+.container input[type="text"]{
+    border: 2px solid black;
+    height: 25px;
+    width: 80%; 
+}
+.container select{
+    height: 30px;
+    width: 70%;
+    border: 2px solid black;
+}
+.btn{
+    margin-top: 400px;
+    float: center;
+    width: 300px;
+    height: 40px;
+    background: red;
+    border-radius: 20px;
+    margin-right: 10%;
+    display: block;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.btn:hover{
+    background: green;
+}
+.left input[type="file"]::-webkit-file-upload-button{
+    width: 150px;
+    height: 25px;
+    background: red;
+    border-radius: 10px;
+    display: block;
+    font-family: sans-serif;
+    font-size: 16px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.left input[type="file"]::-webkit-file-upload-button:hover{
+    background: skyblue;
+}
+
